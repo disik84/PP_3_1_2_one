@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add user</title>
+</head>
+<body>
+<h2>Добавляем пользователя</h2>
+<p><a href="/">Список поользователей</a></p>
+<form action="show-info-new-user" method="GET">
+    <p>
+        <label for="name">Имя</label>
+        <input type="text" id="name" name="name" required size="10"/>
+    </p>
+    <p>
+        <label for="lastname">Фамилия</label>
+        <input type="text" id="lastname" name="lastname" required size="10"/>
+    </p>
+    <p>
+        <label for="age">Кол-во лет</label>
+        <input type="number" id="age" name="age" required size="3"/>
+    </p>
+    <button type="submit">Добавить</button>
+</form>
+</body>
+</html>

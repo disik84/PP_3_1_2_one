@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактируем</title>
+</head>
+<body>
+<p><a href="/">Список поользователей</a></p>
+<form th:action="@{/show-info-edit-user}" method="GET">
+    <input type="hidden" id="id" name="id" th:value="${user.getId()}"/>
+    <p>
+        <label for="name">Имя</label>
+        <input type="text" id="name" name="name" required size="10" th:value="${user.getName()}"/>
+    </p>
+    <p>
+        <label for="lastname">Фамилия</label>
+        <input type="text" id="lastname" name="lastname" required size="10" th:value="${user.getLastName()}"/>
+    </p>
+    <p>
+        <label for="age">Кол-во лет</label>
+        <input type="number" id="age" name="age" required size="3" th:value="${user.getAge()}"/>
+    </p>
+    <button type="submit">Редактировать</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Пользователь добавлен</title>
+</head>
+<body>
+<a href="/">Список пользовотелей</a></li>
+<p><b>Пользователь:</b>
+<div th:text="${user.getName()}">&emsp;Имя: VALUE</div>
+<div th:text="${user.getLastName()}">&emsp;Фамилия: VALUE</div>
+<div th:text="${user.getAge()}">&emsp;Возраст: VALUE</div>
+<b>добавлен в базу</b></p>
+</body>
+</html>

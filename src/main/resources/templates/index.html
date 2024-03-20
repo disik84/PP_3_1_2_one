@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Менеджер пользователей</title>
+</head>
+<body>
+<p><a href="/add-user">Добавить пользователя</a></p>
+<table border="1" cellpadding="5">
+    <th:block th:each="user:${listUsers}">
+        <tr>
+            <td th:text="${user.getName()}"></td>
+            <td th:text="${user.getLastName()}"></td>
+            <td th:text="${user.getAge()}"></td>
+            <td><a th:href="@{/edit-user(id=${user.getId()})}">Редактировать</a></td>
+            <td><a th:href="@{/show-info-delete-user(id=${user.getId()})}">Удалить</a></td>
+        </tr>
+    </th:block>
+</table>
+</body>
+</html>
