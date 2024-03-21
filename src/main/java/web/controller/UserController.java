@@ -52,21 +52,22 @@ public class UserController {
     public String editUser(@RequestParam(value = "id", required = false) Long id,
                            ModelMap model) {
         User user = userServiceImp.getUserById(id);
-        if (user.getId() == null) {
-            return "user-not-found";
-        }
         model.addAttribute("user", user);
         return "edit-user";
     }
 
     @GetMapping(value = "/show-info-edit-user")
-    public String showInfoEditUser(@RequestParam(value = "id", required = false) Long id,
-                                   @RequestParam(value = "name", required = false) String name,
-                                   @RequestParam(value = "lastname", required = false) String lastName,
-                                   @RequestParam(value = "age", required = false) byte age,
+    public String showInfoEditUser(@RequestParam(value = "id") Long id,
+                                   @RequestParam(value = "name") String name,
+                                   @RequestParam(value = "lastname") String lastName,
+                                   @RequestParam(value = "age") String age,
                                    ModelMap model) {
-        User user = new User(name, lastName, age);
-        userServiceImp.editUser(id, name, lastName, age);
-        return "show-info-edit-user";
+        byte newAge;
+        if (age != "") {
+            newAge = Byte.parseByte(age);
+        } else {
+            newAge = 0;
+        }
+        return userServiceImp.editUser(id, name, lastName, newAge);
     }
 }

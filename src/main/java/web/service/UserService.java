@@ -14,5 +14,5 @@ public interface UserService {
 
     public User getUserById(Long id);
 
-    public void editUser(Long id, String name, String lastName, byte age);
+    public String editUser(Long id, String name, String lastName, byte age);
 }

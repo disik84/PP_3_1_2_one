@@ -11,15 +11,15 @@
     <input type="hidden" id="id" name="id" th:value="${user.getId()}"/>
     <p>
         <label for="name">Имя</label>
-        <input type="text" id="name" name="name" required size="10" th:value="${user.getName()}"/>
+        <input type="text" id="name" name="name" size="10" th:value="${user.getName()}"/>
     </p>
     <p>
         <label for="lastname">Фамилия</label>
-        <input type="text" id="lastname" name="lastname" required size="10" th:value="${user.getLastName()}"/>
+        <input type="text" id="lastname" name="lastname" size="10" th:value="${user.getLastName()}"/>
     </p>
     <p>
         <label for="age">Кол-во лет</label>
-        <input type="number" id="age" name="age" required size="3" th:value="${user.getAge()}"/>
+        <input type="number" id="age" name="age" size="3" th:value="${user.getAge()}"/>
     </p>
     <button type="submit">Редактировать</button>
 </form>

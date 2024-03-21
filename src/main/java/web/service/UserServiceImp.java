@@ -7,6 +7,7 @@ import web.dao.UserDao;
 import web.model.User;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 @Transactional(readOnly = true)
@@ -37,16 +38,23 @@ public class UserServiceImp implements UserService {
 
     @Override
     public User getUserById(Long id) {
-        return userDao.findById(id).orElse(new User());
+        return userDao.getReferenceById(id);
     }
 
     @Override
     @Transactional
-    public void editUser(Long id, String name, String lastName, byte age) {
+    public String editUser(Long id, String name, String lastName, byte age) {
         User user = userDao.getReferenceById(id);
-        user.setName(name);
-        user.setLastName(lastName);
-        user.setAge(age);
-        userDao.save(user);
+        System.out.println(name + lastName + age);
+        if (name != "" && lastName != "" && age != 0) {
+            user.setName(name);
+            user.setLastName(lastName);
+            user.setAge(age);
+            userDao.save(user);
+            return "redirect:/";
+        } else {
+            return "error-edit-user";
+        }
+
     }
 }
