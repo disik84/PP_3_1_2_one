@@ -18,7 +18,7 @@ public class User {
     private String lastName;
 
     @Column(name = "age")
-    private  byte age;
+    private byte age;
 
     public User() {
     }
